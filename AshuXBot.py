@@ -5,6 +5,7 @@ from pyrogram.raw.all import layer
 from config import Config
 from aiohttp import web
 from route import web_server
+import random
 
 class Bot(Client):
 
@@ -28,7 +29,10 @@ class Bot(Client):
         if Config.WEBHOOK:
             app = web.AppRunner(await web_server())
             await app.setup()       
-            await web.TCPSite(app, "0.0.0.0", 8080).start()     
+            # Generate a random port number between 1024 and 65535
+            port = random.randint(1024, 65535)
+            await web.TCPSite(app, "0.0.0.0", port).start()  
+            print(f"Web server started on port {port}")   
         print(f"{me.first_name} Is Started.....✨️")
         print(f"ʀᴀᴘᴏ https://github.com/AshutoshGoswami24/Rename-Bot")
         print(f"ʀᴀᴘᴏ ᴄʀᴇᴀᴛᴏʀ https://github.com/AshutoshGoswami24")
@@ -43,6 +47,3 @@ class Bot(Client):
                 print("Please Make This Is Admin In Your Log Channel")
 
 Bot().run()
-
-#ʀᴀᴘᴏ ᴄʀᴇᴀᴛᴏʀ https://github.com/AshutoshGoswami24
-#ʀᴀᴘᴏ https://github.com/AshutoshGoswami24/Rename-Bot
