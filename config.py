@@ -20,7 +20,7 @@ class Config(object):
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002114413910"))
 
     # wes response configuration     
-    WEBHOOK = bool(os.environ.get("WEBHOOK", False))
+    WEBHOOK = bool(os.environ.get("WEBHOOK", True))
 
 #ʀᴀᴘᴏ ᴄʀᴇᴀᴛᴏʀ https://github.com/AshutoshGoswami24
 #ʀᴀᴘᴏ https://github.com/AshutoshGoswami24/Rename-Bot
